@@ -62,6 +62,8 @@ This guide will help you deploy the frontend to Vercel and the backend to Render
    CLOUDINARY_API_SECRET=your_cloudinary_secret
    NODE_ENV=production
    ```
+   
+   **IMPORTANT**: Make sure `NODE_ENV=production` is set! This is required for cookies to work correctly in production (enables `secure` and `sameSite: 'none'` for cross-origin cookies).
 
 5. **Deploy**
    - Click "Create Web Service"
@@ -204,9 +206,13 @@ If you want to deploy the admin dashboard separately:
    - Check Vercel build logs
 
 3. **Authentication Issues**
-   - Verify cookies are being set (check browser DevTools)
+   - Verify cookies are being set (check browser DevTools → Application → Cookies)
    - Ensure `withCredentials: true` is set in axios calls
    - Check CORS settings on backend
+   - **IMPORTANT**: Make sure `NODE_ENV=production` is set in Render environment variables
+   - Cookies require `secure: true` and `sameSite: 'none'` for cross-origin (Vercel ↔ Render)
+   - Verify `FRONTEND_URL` and `DASHBOARD_URL` match your actual Vercel URLs exactly (no trailing slashes)
+   - Check that backend CORS allows your frontend URL
 
 ### Common Environment Variable Issues
 

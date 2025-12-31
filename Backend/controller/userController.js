@@ -196,12 +196,16 @@ export const getUserDetails = catchAsyncErrors(async (req, res, next) => {
 
 // Logout function for dashboard admin
 export const logoutAdmin = catchAsyncErrors(async (req, res, next) => {
+  const cookieOptions = {
+    httpOnly: true,
+    expires: new Date(Date.now()),
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+  };
+  
   res
     .status(201)
-    .cookie("adminToken", "", {
-      httpOnly: true,
-      expires: new Date(Date.now()),
-    })
+    .cookie("adminToken", "", cookieOptions)
     .json({
       success: true,
       message: "Admin Logged Out Successfully.",
@@ -210,16 +214,17 @@ export const logoutAdmin = catchAsyncErrors(async (req, res, next) => {
 
 // Logout function for doctors
 export const logoutDoctor = catchAsyncErrors(async (req, res, next) => {
+  const cookieOptions = {
+    httpOnly: true,
+    expires: new Date(Date.now()),
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+  };
+  
   res
     .status(201)
-    .cookie("patientToken", "", {
-      httpOnly: true,
-      expires: new Date(Date.now()),
-    })
-    .cookie("adminToken", "", {
-      httpOnly: true,
-      expires: new Date(Date.now()),
-    })
+    .cookie("patientToken", "", cookieOptions)
+    .cookie("adminToken", "", cookieOptions)
     .json({
       success: true,
       message: "Doctor Logged Out Successfully.",
@@ -228,12 +233,16 @@ export const logoutDoctor = catchAsyncErrors(async (req, res, next) => {
 
 // Logout function for frontend patient
 export const logoutPatient = catchAsyncErrors(async (req, res, next) => {
+  const cookieOptions = {
+    httpOnly: true,
+    expires: new Date(Date.now()),
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+  };
+  
   res
     .status(201)
-    .cookie("patientToken", "", {
-      httpOnly: true,
-      expires: new Date(Date.now()),
-    })
+    .cookie("patientToken", "", cookieOptions)
     .json({
       success: true,
       message: "Patient Logged Out Successfully.",
