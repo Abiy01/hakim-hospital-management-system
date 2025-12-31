@@ -103,11 +103,16 @@ After deployment, update the `FRONTEND_URL` and `DASHBOARD_URL` in Render's envi
    - Click "Add New Project"
    - Import your GitHub repository
    - Configure the project:
-     - **Framework Preset**: Vite
-     - **Root Directory**: `frontend`
-     - **Build Command**: `npm run build`
-     - **Output Directory**: `dist`
-     - **Install Command**: `npm install`
+     - **Framework Preset**: Vite (or leave as "Other" - Vercel will auto-detect)
+     - **Root Directory**: `frontend` (IMPORTANT: Click "Edit" and set this)
+     - **Build Command**: `npm run build` (should auto-detect)
+     - **Output Directory**: `dist` (should auto-detect for Vite)
+     - **Install Command**: `npm install` (should auto-detect)
+   
+   **Note**: If you get an error about the output directory, make sure:
+   - Root Directory is set to `frontend`
+   - Output Directory is set to `dist` (not `frontend/dist`)
+   - The `vercel.json` file exists in the `frontend` directory (it should be there automatically)
 
 3. **Add Environment Variables**
    - Go to Project Settings → Environment Variables
