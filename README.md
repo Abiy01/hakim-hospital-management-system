@@ -1,5 +1,5 @@
 - https://hakim-hospital-management-system.vercel.app/  - website link
--https://hakim-hospital-management-system-ad.vercel.app/  - admin dashboard link
+- https://hakim-hospital-management-system-ad.vercel.app/  - admin dashboard link
 
 # 🏥 Hakim - Hospital Management System
 
