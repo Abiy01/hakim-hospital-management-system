@@ -1,3 +1,6 @@
+https://hakim-hospital-management-system.vercel.app/  - website link
+https://hakim-hospital-management-system-ad.vercel.app/  - admin dashboard link
+
 # 🏥 Hakim - Hospital Management System
 
 A comprehensive Hospital Management System built with the MERN stack, providing separate interfaces for patients and administrators to manage appointments, doctors, and medical services efficiently.
